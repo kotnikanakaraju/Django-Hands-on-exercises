@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Student Detail</h1>
+    <p><strong>Name:</strong>{{student.first_name}}</p>
+    <p><strong>last_name:</strong>{{student.last_name}}</p>
+    <p><strong>Age:</strong>{{student.age}}</p>
+    <p><strong>grade:</strong>{{student.grade}}</p>
+    <p><strong>school Name:</strong>{{student.school_name}}</p>
+    <p><strong>percentage:</strong>{{student.percentage}}</p>
+    <a href="{% url 'student_update' student.pk %}">Edit</a>
+    <a href="{% url 'student_delete' student.pk %}">Delete</a>
+</body>
+</html>
