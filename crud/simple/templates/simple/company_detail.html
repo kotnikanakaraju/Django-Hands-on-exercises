@@ -1,0 +1,9 @@
+{% extends 'simple/base.html' %}
+{%block body_block %}
+<h1>Company Information</h1><hr>
+<ol>
+    <h2><li>CompanyName:{{company.name}}</li></h2>
+    <h2><li>company location:{{company.location}}</li></h2>
+    <h2><li>Company Ceo:{{company.ceo/title}}</li></h2>
+</ol>
+{% endblock%}
