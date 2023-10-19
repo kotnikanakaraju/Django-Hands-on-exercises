@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block content %}
+<div id="chat-container">
+    <div id="message-list">
+        <ul id="message-list">
+            <li>${{data.message}}</li>
+        </ul>
+    </div>
+    <form id="message-box">
+        <input type="text" id="message-input" placeholder="Type your message">
+        <button type="submit">Send</button>
+    </form>
+
+</div>
+<script src="{% static 'chat/chat_room.js'%}"></script>
+{%endblock %}
