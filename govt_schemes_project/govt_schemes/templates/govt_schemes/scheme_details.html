@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h2>{{scheme.name}}</h2>
+<p>{{scheme.description}}</p>
+<h3>eligibility criteria:</h3>
+<p>{{scheme.eligibility_criteria}}</p>
+<h3>Application Process</h3>
+<p>{{scheme.application_process}}</p>
+<h3>Deadline:</h3>
+<p>{{scheme.deadline}}</p>
+<a href="{% url 'scheme_list' %}">Back to List</a>
+{% endblock %}
