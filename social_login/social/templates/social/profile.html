@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    
+    {% if user.is_authenticated %}
+        <p>Welcome, {{ user.username }}!</p>
+
+        <h2>Facebook Information:</h2>
+        {% if facebook_id %}
+            <p>Facebook ID: {{ facebook_id }}</p>
+        {% else %}
+            <p>You haven't connected your Facebook account.</p>
+            <a href="{% url 'social:begin' backend='facebook' %}">Connect with Facebook</a>
+        {% endif %}
+
+        <h2>Google Information:</h2>
+        {% if google_id %}
+            <p>Google ID: {{ google_id }}</p>
+        {% else %}
+            <p>You haven't connected your Google account.</p>
+            <a href="{% url 'social:begin' backend='google-oauth2' %}">Connect with Google</a>
+        {% endif %}
+
+        <h2>Update Profile:</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+
+    {% else %}
+        <p>Please <a href="{% url 'social:begin' backend='facebook' %}">login with Facebook</a> or <a href="{% url 'social:begin' backend='google-oauth2' %}">Google</a>.</p>
+    {% endif %}
+</body>
+</html>

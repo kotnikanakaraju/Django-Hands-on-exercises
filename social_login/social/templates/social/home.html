@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Home Page!</h1>
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}!</p>
+        <a href="{% url 'social:disconnect' backend='facebook' %}">Disconnect Facebook</a>
+        <a href="{% url 'social:disconnect' backend='google-oauth2' %}">Disconnect Google</a>
+    {% else %}
+        <p>Please <a href="{% url 'social:begin' backend='facebook' %}">login with Facebook</a> or <a href="{% url 'social:begin' backend='google-oauth2' %}">Google</a>.</p>
+    {% endif %}
+</body>
+</html>
